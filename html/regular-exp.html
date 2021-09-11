@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Expression</title>
+    <style>
+      body {
+        background-color: #1b043b;
+      }
+
+      .wrapper {
+        margin: 150px auto;
+        width: 40%;
+        text-align: center;
+      }
+      input {
+        height: 30px;
+        width: 300px;
+        border-radius: 10px;
+        padding: 5px 10px;
+        font-size: 1.1em;
+        letter-spacing: 3px;
+        text-transform: lowercase;
+        outline: 0;
+        border: 4px solid rgb(226, 226, 226);
+      }
+      input:focus {
+        border: 4px solid rgb(6, 226, 255);
+        background-color: rgb(223, 222, 222);
+      }
+      button {
+        width: 120px;
+        height: 48px;
+        font-size: 1.1em;
+        border-radius: 10px;
+        letter-spacing: 3px;
+        text-transform: capitalize;
+        background-color: rgb(247, 231, 17);
+      }
+      button:hover {
+        background-color: rgb(141, 248, 2);
+      }
+      .messages {
+        width: 70%;
+        height: 70px;
+        border-radius: 10px;
+        margin: auto;
+        text-align: center;
+      }
+      #right {
+        background-color: rgb(90, 247, 17);
+        padding: 10px 6px;
+        border-radius: 10px;
+        font-size: 1.5em;
+      }
+      #wrong {
+        background-color: rgb(247, 231, 17);
+        padding: 10px 6px;
+        border-radius: 10px;
+        color: red;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div action="" class="wrapper">
+      <input id="field" type="email" placeholder="your email here" />
+      <button onclick="btn()">submit</button>
+    </div>
+    <section class="messages">
+      <div id="right"><!-- right message goes here --></div>
+      <div id="wrong"><!-- wrong message goes here --></div>
+    </section>
+
+    <script>
+      document.getElementById("right").style.display = "none";
+      document.getElementById("wrong").style.display = "none";
+
+      function check(value) {
+        const regex = /^\w+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
+        const check = regex.test(value);
+        if (check) {
+          document.getElementById("wrong").style.display = "none";
+          document.getElementById("right").style.display = "block";
+          const container = document.getElementById("right");
+          const p = document.createElement("p");
+          p.innerText = " Congratulations ! It's a valid Email.";
+          container.appendChild(p);
+        } else {
+          document.getElementById("right").style.display = "none";
+          document.getElementById("wrong").style.display = "block";
+          const container2 = document.getElementById("wrong");
+          const p = document.createElement("p");
+          p.innerText = " Sorry ! It's an Invalid Email";
+          container2.appendChild(p);
+        }
+      }
+      const btn = () => {
+        const field = document.getElementById("field");
+        const fieldText = field.value;
+        field.value = "";
+        document.getElementById("wrong").textContent = "";
+        document.getElementById("right").textContent = "";
+
+        if (fieldText == "") {
+          document.getElementById("right").style.display = "none";
+          document.getElementById("wrong").style.display = "none";
+          alert("Please write an email address");
+        } else {
+          check(fieldText);
+        }
+      };
+    </script>
+  </body>
+</html>

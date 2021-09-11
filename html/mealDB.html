@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal DB</title>
+    <style>
+      .container {
+        width: 80%;
+        width: 100vw;
+        min-height: 100vh;
+        background-color: rgb(230, 225, 225);
+        margin: auto;
+        padding: 15px;
+      }
+      .input-wrapper {
+        display: flex;
+        align-items: center;
+        margin: 0 auto 15px;
+        width: 50%;
+      }
+      #foodInput {
+        height: 48px;
+        width: 400px;
+        margin-right: 3px;
+        font-size: 1.2em;
+        padding: 3px 10px;
+        border-radius: 8px;
+      }
+      .btn {
+        height: 54px;
+        width: 100px;
+        border-radius: 8px;
+        font-size: 1.3em;
+      }
+      .card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+        row-gap: 20px;
+        justify-content: space-between;
+      }
+      .image-div {
+        height: 300px;
+        width: 380px;
+      }
+      .image-div img {
+        width: 100%;
+        max-height: 100%;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      .card {
+        min-height: 400px;
+        width: 380px;
+        background-color: rgba(128, 128, 128, 0);
+        box-shadow: 0 0 5px gray;
+        border-radius: 10px;
+      }
+      .details-div {
+        height: 130px;
+        padding: 10px;
+        color: rgb(42, 49, 42);
+      }
+    </style>
+  </head>
+  <!-- <style>
+    .wrapper {
+      width: 80%;
+      text-align: center;
+      margin: 20px auto;
+      padding-top: 20px;
+    }
+    input {
+      width: 40%;
+      height: 48px;
+      margin: auto;
+      padding: 5px 10px;
+      box-sizing: border-box;
+    }
+    .btn {
+      width: 90px;
+      height: 45px;
+    }
+    /* .h3meal {
+      width: 50%;
+      margin: 20px auto;
+      text-align: center;
+    } */
+    #sectionId {
+      background-color: rgb(230, 228, 228);
+      width: 60%;
+      min-height: 400px;
+      margin: auto;
+      padding: 10px;
+      border-radius: 14px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    img {
+      width: 350px;
+      height: 250px;
+      border-radius: 20px;
+    }
+    .centerDiv {
+      width: 350px;
+      margin: auto;
+    }
+    .card {
+      width: 370px;
+      height: auto;
+      padding: 10px;
+    }
+  </style> -->
+  <body>
+    <main class="container" id="">
+      <section class="input-wrapper">
+        <input
+          id="foodInput"
+          type="text"
+          placeholder="search your favorite meals"
+        />
+        <button class="btn" onclick="searchFood()">Search</button>
+      </section>
+      <section class="container">
+        <div class="card-wrapper" id="card-container"></div>
+      </section>
+    </main>
+    <script src="/js/mealdb.js"></script>
+  </body>
+</html>
